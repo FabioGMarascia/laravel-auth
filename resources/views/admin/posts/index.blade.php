@@ -11,13 +11,16 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $post['project_title'] }}</h5>
                         <p class="card-text">{{ $post['description'] }}</p>
-                        <a href="#" class="btn btn-primary">Da definire</a>
+                        <div class="row d-flex">
+                            <a href="#" class="btn btn-primary">Da definire</a>
 
-                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</a>
-                        </form>
+                            <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger w-100 ">Delete</a>
+                            </form>
+                        </div>
+                       
 
                     </div>
                 </div>

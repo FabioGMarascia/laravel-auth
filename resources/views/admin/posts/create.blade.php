@@ -16,7 +16,7 @@
         </div>
     @endif
 
-    <form action="{{ route('posts.store') }}" method="POST">
+    <form action="{{ route('admin.posts.store') }}" method="POST">
         @csrf
 
         <div class="row mx-0 justify-content-center">

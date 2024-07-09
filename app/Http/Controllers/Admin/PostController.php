@@ -14,7 +14,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $postsList = Post::all();
+        $data = [
+            "posts" => $postsList
+        ];
+        return view('posts.index', $data);
     }
 
     /**
@@ -46,7 +50,7 @@ class PostController extends Controller
 
         $newPost->save();
 
-        return redirect()->route('posts.create', $newPost);
+        return redirect()->route('posts.index', $newPost);
     }
 
     /**

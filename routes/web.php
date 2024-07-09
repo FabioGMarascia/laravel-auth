@@ -19,6 +19,9 @@ use App\Http\Controllers\Admin\DashboardController; //<---- Import del controlle
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/posts/index', [PostController::class, 'index'])->name('index');
+
+
 
 Route::middleware(['auth'])
     ->prefix('admin') //definisce il prefisso "admin/" per le rotte di questo gruppo

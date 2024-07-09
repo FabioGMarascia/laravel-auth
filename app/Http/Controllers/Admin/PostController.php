@@ -50,7 +50,7 @@ class PostController extends Controller
 
         $newPost->save();
 
-        return redirect()->route('/', $newPost);
+        return redirect()->route('admin.posts.index', $newPost);
     }
 
     /**

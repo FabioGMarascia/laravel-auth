@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('project_title');
+            $table->text('description');
+            $table->string('collaborators');
+            $table->string('framework');
+            $table->date('start_project');
+            $table->date('end_project');
         });
     }
 

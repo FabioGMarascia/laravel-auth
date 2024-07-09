@@ -20,8 +20,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('posts', PostController::class);
-
 Route::middleware(['auth'])
     ->prefix('admin') //definisce il prefisso "admin/" per le rotte di questo gruppo
     ->name('admin.') //definisce il pattern con cui generare i nomi delle rotte cioè "admin.qualcosa"
@@ -31,6 +29,8 @@ Route::middleware(['auth'])
         // - il percorso "/" diventa "admin/"
         // - il nome della rotta ->name("dashboard") diventa ->name("admin.dashboard")
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+        Route::resource('posts', PostController::class);
     });
 
 require __DIR__ . '/auth.php';

@@ -13,7 +13,7 @@
                         <p class="card-text">{{ $post['description'] }}</p>
                         <a href="#" class="btn btn-primary">Da definire</a>
 
-                        <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
+                        <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</a>

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('collaborators');
             $table->string('framework');
+            $table->string('thumb');
             $table->date('start_project');
             $table->date('end_project');
             $table->timestamps();

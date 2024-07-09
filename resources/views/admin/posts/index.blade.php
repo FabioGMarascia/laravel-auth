@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row pt-5">
             @foreach ($posts as $post)
-                <div class="card" style="width: 18rem;">
+                <div class="card p-4 m-3  " style="width: 18rem; background-color:rgb(255, 154, 154)">
                     <img src="{{ $post['thumb'] }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">{{ $post['project_title'] }}</h5>

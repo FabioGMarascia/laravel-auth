@@ -19,6 +19,9 @@ class PostSeeder extends Seeder
             $post->description=$faker->text;
             $post->collaborators=$faker->name;
             $post->framework=$faker->name;
+            $post->thumb=$faker->imageUrl;
+            
+
             $post->start_project=$faker->date();
             $post->end_project=$faker->date();
             $post->save();

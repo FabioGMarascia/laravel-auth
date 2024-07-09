@@ -16,9 +16,9 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.posts.update'), $post->id }}" method="POST">
-        @method('PUT')
+    <form action="{{ route('admin.posts.update', $post) }}" method="POST">
         @csrf
+        @method('PUT')
 
         <div class="row mx-0 justify-content-center">
             <div class="col-6 px-0 rounded">

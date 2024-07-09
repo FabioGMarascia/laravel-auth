@@ -12,8 +12,8 @@
                         <h5 class="card-title">{{ $post['project_title'] }}</h5>
                         <p class="card-text">{{ $post['description'] }}</p>
                         <div class="row d-flex">
-                            <a href="#" class="btn btn-primary">Da definire</a>
-                            <a href="{{route('admin.posts.show', $post->id)}}" class="btn btn-primary">Dettaglio</a>
+                            <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">Dettaglio</a>
 
                             <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
                                 @csrf
@@ -21,7 +21,7 @@
                                 <button type="submit" class="btn btn-danger w-100 ">Delete</a>
                             </form>
 
-                            <a href="#" class="btn btn-primary">Da definire</a>
+
                         </div>
 
 

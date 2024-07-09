@@ -50,6 +50,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
+                        <li>
+                            <a class="nav-link" href="{{ url('admin/posts') }}">{{ __('Posts') }}</a>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="{{ url('admin/posts/create') }}">{{ __('Form') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -19,8 +19,10 @@
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger w-100 ">Delete</a>
                             </form>
+
+                            <a href="#" class="btn btn-primary">Da definire</a>
                         </div>
-                       
+
 
                     </div>
                 </div>

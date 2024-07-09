@@ -66,7 +66,12 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+
+        $data = [
+            "post" => $post
+        ];
+
+        return view('admin.posts.edit', $data);
     }
 
     /**
@@ -74,7 +79,19 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $data = $request->validate([
+            "project_title" => "required|min:3|max:200",
+            "description" => "required|min:3|max:255",
+            "collaborators" => "required|min:3|",
+            "framework" => "required",
+            "thumb" => "required",
+            "start_project" => "required",
+            "end_project" => "required",
+        ]);
+
+        $post->update($data);
+
+        return redirect()->route('admin.posts.show', $post);
     }
 
     /**

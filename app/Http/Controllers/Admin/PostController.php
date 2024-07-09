@@ -22,7 +22,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('comics.create');
+        return view('posts.create');
     }
 
     /**
@@ -30,7 +30,23 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $data = $request->validate([
+            "project_title" => "required|min:3|max:200",
+            "description" => "required|min:3|max:255",
+            "collaborators" => "required|min:3|",
+            "framework" => "required",
+            "thumb" => "required",
+            "start_project" => "required",
+            "end_project" => "required",
+        ]);
+
+        $newPost = new Post();
+
+        $newPost->fill($data);
+
+        $newPost->save();
+
+        return redirect()->route('posts.create', $newPost);
     }
 
     /**

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
+use App\Models\Post;
 
 
 /*
@@ -17,8 +18,14 @@ use App\Http\Controllers\Admin\DashboardController; //<---- Import del controlle
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $postsList = Post::all();
+    $data = [
+        "posts" => $postsList
+    ];
+    return view('welcome', $data);
 });
+
+// 
 
 
 Route::middleware(['auth'])

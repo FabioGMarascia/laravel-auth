@@ -14,7 +14,7 @@ class PostSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $url = 'https://imgs.search.brave.com/vFitliQZ4kHN7CUtgzgHSzWLptT2_6dhHwMxvHF9Kqs/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM0/NTk0MjU2Mi9pdC9m/b3RvL2dhdHRpbm8t/Z2F0dG8tYnJpdGFu/bmljby1jaGUtZ3Vh/cmRhLWxhLW1hY2No/aW5hLWZvdG9ncmFm/aWNhLmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1lYVhaTks2/cHdYS1lTVGkyT0dr/T0FFTUZnRm8zcDZL/b0ZWeVpTMXlicDE0/PQ';
+        $url = 'https://t3.ftcdn.net/jpg/02/48/42/64/360_F_248426448_NVKLywWqArG2ADUxDq6QprtIzsF82dMF.jpg';
         for ($i = 0; $i < 12; $i++) {
             $post = new Post();
             $post->project_title = $faker->name;

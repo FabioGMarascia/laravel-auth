@@ -56,6 +56,9 @@
                         <li>
                             <a class="nav-link" href="{{ url('admin/posts/create') }}">{{ __('Form') }}</a>
                         </li>
+                        <li>
+                            <a class="nav-link" href="{{ url('admin/chat') }}">{{ __('Chat') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

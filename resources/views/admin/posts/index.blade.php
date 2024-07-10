@@ -9,6 +9,7 @@
                 <div class="col-3 card p-4 m-3 border border-2 border-black"
                     style=" background-color:rgba(255, 153, 0, 0.723)">
                     <img src="{{ $post['thumb'] }}" class="card-img-top" alt="...">
+
                     <div class="card-body">
                         <h5 class="card-title">{{ $post['project_title'] }}</h5>
                         <p class="card-text">{{ $post['description'] }}</p>
@@ -24,12 +25,9 @@
                                     <button type="submit" class="btn btn-danger w-100">Delete</a>
                                 </form>
                             </div>
-
-
                         </div>
-
-
                     </div>
+
                 </div>
             @endforeach
         </div>

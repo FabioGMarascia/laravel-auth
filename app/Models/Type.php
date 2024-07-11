@@ -17,7 +17,7 @@ class Type extends Model
         "updated_at",
     ];
 
-    public function post()
+    public function post() 
     {
         return $this->hasMany(Post::class);
     }

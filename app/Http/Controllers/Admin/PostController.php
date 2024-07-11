@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
+use App\Models\Type;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Controllers\Controller;
@@ -26,7 +27,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $types = Type::all();
+
+        $data = [
+            'types' => $types
+        ];
+        return view('admin.posts.create', $data);
     }
 
     /**
@@ -42,6 +48,7 @@ class PostController extends Controller
             "thumb" => "required",
             "start_project" => "required",
             "end_project" => "required",
+            "type_id" => "required",
         ]);
 
         $newPost = new Post();
@@ -58,8 +65,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $data=[
-            "post"=> $post
+        $data = [
+            "post" => $post
         ];
         return view("admin.posts.show", $data);
     }
@@ -69,9 +76,11 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        $types = Type::all();
 
         $data = [
-            "post" => $post
+            "post" => $post,
+            'types' => $types
         ];
 
         return view('admin.posts.edit', $data);
@@ -90,6 +99,7 @@ class PostController extends Controller
             "thumb" => "required",
             "start_project" => "required",
             "end_project" => "required",
+            "type_id" => "required",
         ]);
 
         $post->update($data);

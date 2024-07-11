@@ -42,9 +42,14 @@
                     </div>
 
                     <div class="col-5 px-0 pb-4">
-                        <label class="py-2 text-danger fw-bold fs-5">IMAGE LINK</label>
-                        <input type="text" class="form-control" name="thumb" placeholder="Link"
-                            value="{{ old('thumb') }}">
+                        <label for="type_id" class="py-2 text-danger fw-bold fs-5">TYPE</label>
+                        <select class="form-select" name="type_id" id="type_id" required>
+                            <option selected>Open this select menu</option>
+                            @foreach ($types as $type)
+                                <option value={{ $type->id }}> {{ $type->name }}</option>
+                            @endforeach
+
+                        </select>
                     </div>
 
                     <div class="col-5 px-0 pb-4">
@@ -57,6 +62,12 @@
                         <label class="py-2 text-danger fw-bold fs-5">PROJECT END</label>
                         <input type="text" class="form-control" name="end_project" placeholder="YYYY-MM-DD"
                             value="{{ old('end_project') }}">
+                    </div>
+
+                    <div class="col-11 px-0 pb-4">
+                        <label class="py-2 text-danger fw-bold fs-5">IMAGE LINK</label>
+                        <input type="text" class="form-control" name="thumb" placeholder="Link"
+                            value="{{ old('thumb') }}">
                     </div>
 
                     <div class="col-11 px-0 pb-4">

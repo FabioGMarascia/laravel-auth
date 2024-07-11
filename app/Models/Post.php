@@ -17,6 +17,7 @@ class Post extends Model
         "thumb",
         "start_project",
         "end_project",
+        "type_id",
         "created_at",
         "updated_at",
     ];

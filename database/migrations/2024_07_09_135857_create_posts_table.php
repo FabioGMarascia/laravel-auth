@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('thumb');
             $table->date('start_project');
             $table->date('end_project');
+            $table->foreignId('type_id')->constrained();
             $table->timestamps();
         });
     }

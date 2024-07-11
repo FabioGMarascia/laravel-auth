@@ -11,6 +11,7 @@
             <div class="col-12 p-4">
 
                 <h2>{{ $post->project_title }}</h2>
+                <p> {{ $post->type->name }} </p>
                 <p> {{ $post->description }} </p>
                 <p> {{ $post->end_project }} </p>
 

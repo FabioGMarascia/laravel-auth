@@ -47,4 +47,5 @@ Route::middleware(['auth'])
         Route::post('/receive', 'App\Http\Controllers\PusherController@receive');
     });
 
+    
 require __DIR__ . '/auth.php';

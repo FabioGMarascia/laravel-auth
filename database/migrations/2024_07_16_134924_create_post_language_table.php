@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('post_language', function (Blueprint $table) {
             $table->unsignedBigInteger('post_id');
-            $table->foreign('post_id')->references('id')->on('post');
+            $table->foreign('post_id')->references('id')->on('posts');
 
-            $table->unsignedBigInteger('languege_id');
-            $table->foreign('user_id')->references('id')->on('language');
+            $table->unsignedBigInteger('language_id');
+            $table->foreign('language_id')->references('id')->on('languages');
             $table->timestamps();
         });
     }

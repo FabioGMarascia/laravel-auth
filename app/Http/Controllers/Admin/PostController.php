@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
 use App\Models\Type;
+use App\Models\Language;
+
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Controllers\Controller;
@@ -11,8 +13,11 @@ use App\Http\Controllers\Controller;
 class PostController extends Controller
 {
     /**
+     * 
      * Display a listing of the resource.
      */
+
+
     public function index()
     {
         $postsList = Post::all();

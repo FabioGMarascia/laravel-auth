@@ -6,6 +6,8 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
 use App\Models\Post;
+use App\Models\Languages;
+
 
 class PostSeeder extends Seeder
 {
@@ -25,7 +27,11 @@ class PostSeeder extends Seeder
             $post->start_project = $faker->date();
             $post->end_project = $faker->date();
             $post->type_id = $faker->numberBetween(1, 4);
+            
             $post->save();
+
+            
+           //$post->language()->attach(2);
         }
     }
 }

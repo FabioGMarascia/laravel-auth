@@ -4,7 +4,8 @@ use App\Http\Controllers\Admin\PostController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
 use App\Models\Post;
-
+use App\Http\Controllers\TypeController;
+use App\Http\Controllers\LanguageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,9 @@ Route::get('/', function () {
     return view('welcome', $data);
 });
 
+Route::resource('type', TypeController::class);
 
-
-
+Route::resource('language', LanguageController::class);
 
 // 
 
@@ -47,5 +48,5 @@ Route::middleware(['auth'])
         Route::post('/receive', 'App\Http\Controllers\PusherController@receive');
     });
 
-    
+
 require __DIR__ . '/auth.php';

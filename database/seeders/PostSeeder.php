@@ -25,6 +25,7 @@ class PostSeeder extends Seeder
             $post->start_project = $faker->date();
             $post->end_project = $faker->date();
             $post->type_id = $faker->numberBetween(1, 4);
+
             $post->save();
         }
     }

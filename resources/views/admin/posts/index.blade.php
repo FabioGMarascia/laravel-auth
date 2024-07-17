@@ -8,6 +8,7 @@
             @foreach ($posts as $post)
                 <div class="col-3 card p-4 m-3 border border-2 border-black"
                     style=" background-color:rgba(255, 153, 0, 0.723)">
+
                     @if (Str::startsWith($post->thumb, 'http'))
                         <img src="{{ $post->thumb }}" class="card-img-top">
                     @else

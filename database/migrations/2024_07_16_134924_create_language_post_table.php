@@ -15,6 +15,8 @@ return new class extends Migration
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')->references('id')->on('posts');
 
+            // $table ->foreignId('post_id')->constrained();  ABBREVIA LE DUE RIGHE SOPRA
+
             $table->unsignedBigInteger('language_id');
             $table->foreign('language_id')->references('id')->on('languages');
             $table->timestamps();

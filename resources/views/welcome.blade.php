@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <div class="content">
+    {{-- <div class="content">
         <div class="container">
             <div class="row pt-5 justify-content-center">
                 @foreach ($posts as $post)
@@ -49,5 +49,5 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection

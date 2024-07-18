@@ -79,7 +79,7 @@
                     </div>
 
                     <div class="col-3">
-                        <button type="submit" class="btn text-center w-100 bg-danger fw-bold text-black fs-5">
+                        <button type="submit" class="btn text-center w-100 bg-danger fw-bold text-black fs-5 mb-5">
                             ADD PROJECT
                         </button>
                     </div>

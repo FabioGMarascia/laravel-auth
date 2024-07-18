@@ -6,8 +6,7 @@
     <div class="container">
         <div class="row pt-5 justify-content-center">
             @foreach ($posts as $post)
-                <div class="col-3 card p-4 m-3 border border-2 border-black"
-                    style=" background-color:rgba(255, 153, 0, 0.723)">
+                <div class="col-3 card p-4 m-3 text-white" style=" background-color:#333333">
 
                     @if (Str::startsWith($post->thumb, 'http'))
                         <img src="{{ $post->thumb }}" class="card-img-top">
@@ -23,17 +22,18 @@
 
                         <div class="row d-flex justify-content-center">
 
-                            <a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-primary mb-2 w-75">Edit</a>
-
                             <a href="{{ route('admin.posts.show', $post->id) }}"
-                                class="btn btn-primary mb-2 w-75 px-0">Dettaglio</a>
+                                class="btn btn-warning mb-2 w-75 px-0 fw-bold text-white">INFO</a>
+
+                            <a href="{{ route('admin.posts.edit', $post->id) }}"
+                                class="btn btn-success mb-2 w-75 fw-bold">EDIT</a>
 
                             <div class="px-0 w-75">
 
                                 <form action="{{ route('admin.posts.destroy', $post->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger w-100">Delete</a>
+                                    <button type="submit" class="btn btn-danger w-100 fw-bold">DELETE</a>
                                 </form>
 
                             </div>

@@ -44,20 +44,20 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse fw-bold" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
+                            <a class="nav-link" href="{{ url('/') }}">{{ __('HOME') }}</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ url('admin/posts') }}">{{ __('Posts') }}</a>
+                            <a class="nav-link" href="{{ url('admin/posts') }}">{{ __('PROJECTS') }}</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ url('admin/posts/create') }}">{{ __('Form') }}</a>
+                            <a class="nav-link" href="{{ url('admin/posts/create') }}">{{ __('NEW PROJECT') }}</a>
                         </li>
                         <li>
-                            <a class="nav-link" href="{{ url('admin/chat') }}">{{ __('Chat') }}</a>
+                            <a class="nav-link" href="{{ url('admin/chat') }}">{{ __('CHAT') }}</a>
                         </li>
                     </ul>
 

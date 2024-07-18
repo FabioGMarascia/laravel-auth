@@ -10,6 +10,7 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -21,7 +22,8 @@ class PostController extends Controller
 
     public function index()
     {
-        $postsList = Post::all();
+        // $projects = Project::orderByDesc('id')->paginate();
+        $postsList = Post::orderByDesc('id')->paginate();
         $data = [
             "posts" => $postsList
         ];
@@ -108,6 +110,10 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        if ($post->thumb && !Str::startsWith($post->thumb, 'http')) {
+
+            Storage::delete($post->thumb);
+        }
         $post->delete();
         return redirect()->route('admin.posts.index');
     }

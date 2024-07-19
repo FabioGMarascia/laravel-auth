@@ -12,7 +12,7 @@ class PostController extends Controller
     {
         return response()->json([
             'success' => true,
-            'posts' => Post::with('type', 'language')->paginate(),
+            'posts' => Post::with('type', 'language')->paginate(6),
         ]);
     }
 }

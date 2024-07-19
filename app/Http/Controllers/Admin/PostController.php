@@ -23,7 +23,7 @@ class PostController extends Controller
     public function index()
     {
         // $projects = Project::orderByDesc('id')->paginate();
-        $postsList = Post::orderByDesc('id')->paginate();
+        $postsList = Post::orderByDesc('id')->paginate(6);
         $data = [
             "posts" => $postsList
         ];

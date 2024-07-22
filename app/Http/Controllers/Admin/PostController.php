@@ -14,58 +14,41 @@ use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
-    /**
-     * 
-     * Display a listing of the resource.
-     */
-
 
     public function index()
     {
-        // $projects = Project::orderByDesc('id')->paginate();
-        $postsList = Post::orderByDesc('id')->paginate();
-        $data = [
-            "posts" => $postsList
-        ];
-        return view('admin.posts.index', $data);
+        $posts = Post::orderByDesc('id')->paginate();
+
+        return view('admin.posts.index', compact('posts'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         $types = Type::all();
-
-        $data = [
-            'types' => $types
-        ];
-        return view('admin.posts.create', $data);
+        return view('admin.posts.create', compact('types'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(StorePostRequest $request)
     {
         $data = $request->validated();
 
-        $img_path = Storage::put('uploads', $request->thumb);
+        if ($request->has('thumb')) {
+            $img_path = Storage::put('uploads', $request->thumb);
 
-        $data['thumb'] = $img_path;
+            $data['thumb'] = $img_path;
+        }
 
-        $newPost = new Post();
+        $newPost = Post::create($data);
 
-        $newPost->fill($data);
-
-        $newPost->save();
+        if ($request->has('languages')) {
+            $newPost->languages()->attach($request->languages);
+        }
 
         return to_route('admin.posts.index')->with('message', 'Post created');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Post $post)
     {
         $data = [
@@ -74,9 +57,6 @@ class PostController extends Controller
         return view("admin.posts.show", $data);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Post $post)
     {
         $types = Type::all();
@@ -89,25 +69,28 @@ class PostController extends Controller
         return view('admin.posts.edit', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdatePostRequest $request, Post $post)
     {
         $data = $request->validated();
 
-        $img_path = Storage::put('uploads', $request->thumb);
+        if ($request->has('thumb')) {
 
-        $data['thumb'] = $img_path;
+            $img_path = Storage::put('uploads', $request->thumb);
+
+            $data['thumb'] = $img_path;
+
+            if ($post->thumb && !Str::startsWith($post->thumb, 'http')) {
+
+                Storage::delete($post->thumb);
+            }
+        }
 
         $post->update($data);
 
-        return to_route('admin.posts.show', $post)->with('message', 'Post updated');
+        return to_route('admin.posts.index', $post)->with('message', 'Post updated');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(Post $post)
     {
         if ($post->thumb && !Str::startsWith($post->thumb, 'http')) {

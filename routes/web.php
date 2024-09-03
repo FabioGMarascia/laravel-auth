@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Http\Controllers\TypeController;
 use App\Http\Controllers\LanguageController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,10 +44,17 @@ Route::middleware(['auth'])
         // - il nome della rotta ->name("dashboard") diventa ->name("admin.dashboard")
         Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('posts', PostController::class);
-        Route::get('/chat', 'App\Http\Controllers\PusherController@chat');
-        Route::post('/broadcast', 'App\Http\Controllers\PusherController@broadcast');
-        Route::post('/receive', 'App\Http\Controllers\PusherController@receive');
     });
 
-
 require __DIR__ . '/auth.php';
+
+
+// Route::get('/mailable', function () {
+//     $lead = [
+//         "name" => "Fabio",
+//         "email" => "fabio@example.com",
+//         "message" => "Lorem ipsum"
+//     ];
+//     // $lead = Lead::first();
+//     return new App\Mail\NewLeadMarkdownMessage($lead);
+// });
